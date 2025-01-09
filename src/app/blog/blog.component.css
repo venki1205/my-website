@@ -1,0 +1,17 @@
+.container{
+    width: 100%;
+    height: 100%;
+justify-content: space-around;
+
+    }
+.card{
+    width: 80%;
+    height: 25%;
+    background-color: white;
+    border-radius: 20px;
+  
+    }
+    .details{
+        
+        padding: 20px;
+    }

@@ -1,0 +1,12 @@
+<h1 class="head">IMDB Movies</h1>
+<div class="container">
+    <div class="card" *ngFor="let imdb of imdb">
+        <img src="{{imdb.image}}" alt="">
+            <p class="id">{{imdb.id}}.{{imdb.movie}}</p> 
+     
+          <p class="rating">Rating: {{imdb.rating}} ⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <a class="btn btn-primary"  href="{{imdb.imdb_url}}">View on IMDb</a>
+           
+     </div>
+</div>
+

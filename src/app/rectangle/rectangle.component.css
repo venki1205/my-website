@@ -1,0 +1,13 @@
+
+.parent{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+ 
+}
+.child{
+  width: 20%;
+  height: 50%;
+  background-color: darkcyan;
+  
+}

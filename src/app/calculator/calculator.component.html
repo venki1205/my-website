@@ -1,0 +1,26 @@
+&nbsp; <br>
+
+<div class="parent">
+    <div class="child">
+&nbsp; &nbsp;
+    <h1><b>Calculator</b></h1>
+    <hr>
+     
+    <label for=""> value1: &nbsp; &nbsp;</label>
+    <input type="number"  [(ngModel)]="a"> <br> <br>
+    <label for=""> value2:</label>
+    <input type="number"  [(ngModel)]="b"> <br> <br>
+    <!-- <label for=""><b>Result: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
+    <input type="number" id="Calculator"> <br> <br> -->
+
+    <button [disabled]="!a || !b" (click)="add()"><b>ADDITION</b></button> &nbsp;
+    <button [disabled]="!a || !b" (click)="substract()"><b>SUBSTRACTION</b></button>  &nbsp;
+    <button [disabled]="!a || !b" (click)="multiply()"><b>MUlTIPLICATION</b></button>&nbsp;
+    <button [disabled]="!a || !b" (click)="divide()" ><b>DIVISION</b></button> &nbsp;
+    
+
+    <h2>Result is: {{result}}</h2>
+    </div>
+
+</div>
+
