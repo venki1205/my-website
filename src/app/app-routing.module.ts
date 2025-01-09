@@ -22,6 +22,7 @@ import { PinterestComponent } from './pinterest/pinterest.component';
 import { BlogComponent } from './blog/blog.component';
 import { ImdbComponent } from './imdb/imdb.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -44,7 +45,8 @@ const routes: Routes = [
     {path:'pinterest',component:PinterestComponent},
     {path:'blog',component:BlogComponent},
     {path:'imdb',component:ImdbComponent},
-    {path:'profile',component:ProfileComponent}
+    {path:'profile',component:ProfileComponent},
+    {path:'accounts',component:AccountsComponent}
 
     
   ]},

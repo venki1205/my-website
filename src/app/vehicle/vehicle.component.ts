@@ -43,4 +43,31 @@ export class VehicleComponent {
     )
   }
 
+  limit:number=0;
+  page:number=0;
+  pagination(){
+    this._vehicleService.getpaginatedVehicles(this.limit,this.page).subscribe(
+      (data:any)=>{
+        this.vehicles=data;
+        console.log(this.vehicles);
+      },(err:any)=>{
+        alert("Internal Server Error")
+      }
+    )
+  }
+  delete(id:number){
+    if(confirm("Are you sure to delete")==true){
+      this._vehicleService.deleteVehicle(id).subscribe(
+        (data:any)=>{
+          alert("Record Deleted Successfully");
+          location.reload();
+        },(err:any)=>{
+          alert("Internal Server Error")
+        }
+      )
+    }else{
+      alert("You have Cancelled!")
+    }
+  }
+
 }

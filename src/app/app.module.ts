@@ -26,6 +26,7 @@ import { PinterestComponent } from './pinterest/pinterest.component';
 import { BlogComponent } from './blog/blog.component';
 import { ImdbComponent } from './imdb/imdb.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ProfileComponent } from './profile/profile.component';
     PinterestComponent,
     BlogComponent,
     ImdbComponent,
-    ProfileComponent
+    ProfileComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,
