@@ -31,7 +31,7 @@
     <button class="btn btn-primary" (click)="add()">Add Items</button>
 </div>
 </div>
-</div>
+</div >
 <table class="table table-dark">
     <thead>
         <tr>
@@ -48,7 +48,7 @@
             <td>{{i+1}}</td>
             <td>{{thing.productname}}</td>
             <td>{{thing.price}}</td>
-            <td>{{thing.rating}}</td>
+            <td>{{thing.rating}} <app-rating [rating]="thing.rating"></app-rating></td>
             <td>{{thing.freedelivary}}</td>
             <td> <button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
         </tr>

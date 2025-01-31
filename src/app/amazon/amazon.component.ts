@@ -13,6 +13,8 @@ export class AmazonComponent {
       (data:any)=>{
         this.amazon=data;
         console.log(this.amazon);
+      },(err:any)=>{
+        alert("Internal Server Error")
       }
     )
     

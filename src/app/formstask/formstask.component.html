@@ -1,0 +1,77 @@
+<h1>Details</h1>
+<form action="" [formGroup]="userForm">
+    <label for="name">Name :</label>
+    <input type="text" name="name" id="name" formControlName="name"> <br>
+
+    <label for="class">Class :</label>
+    <input type="number" name="class" id="class" formControlName="class"> <br>
+
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email" formControlName="email"> <br>
+
+    <label for="fathername">Father Name :</label>
+    <input type="text" name="fathername" id="fathername" formControlName="fathername"> <br>
+
+    <label for="dob">DOB :</label>
+    <input type="date" name="dob" id="dob" formControlName="dob"> <br>
+
+    <div formGroupName="address">
+        <label for="addressline">Address Line :</label>
+        <input type="text" name="addressline" id="addressline" formControlName="addressline"> <br> 
+
+        <label for="city">City :</label>
+        <input type="text" name="city" id="city" formControlName="city"> <br>
+
+        <label for="state">State :</label>
+        <input type="text" name="state" id="state" formControlName="state"> <br>
+
+        <label for="pincode">Pincode :</label>
+        <input type="number" name="pincode" id="pincode" formControlName="pincode"> <br>
+        <div *ngIf="userForm.get('address')?.get('pincode')?.invalid && userForm.get('address')?.get('pincode')?.touched">
+            <p *ngIf="userForm.get('address')?.get('pincode')?.errors?.['required']">Pincode is Required</p>
+            <p *ngIf="userForm.get('address')?.get('pincode')?.errors?.['min']">Pincode should be min of 6</p>
+            <p *ngIf="userForm.get('address')?.get('pincode')?.errors?.['max']">Pincode should be max of 6</p>
+        </div>
+    </div>
+    <label >Type :</label> &nbsp;
+    <input type="radio" name="type" formControlName="type" value="dayscholar"> 
+
+    <label >DaysScholar</label> &nbsp;
+    <input type="radio" name="type" formControlName="type" value="hostel"> 
+    <label>Hostel</label>
+    <div *ngIf="userForm.get('type')?.value=='hostel'">
+        <label for="">Hostel Fee</label>
+        <input type="number" formControlName="hostelfee"> <br>
+    </div> <br> 
+
+    <div *ngIf="userForm.get('type')?.value=='dayscholar'">
+        <label for="">Bus Fee</label>
+        <input type="number" formControlName="busfee"> <br>
+    </div> <br>
+   <h1>Marks Details</h1>
+    <div formArrayName="marks">
+        <div *ngFor="let marks of markFormArry.controls; let i=index" >
+            <div formGroupName="{{i}}">
+                <h2>Marks{{i+1}}</h2>
+               <label for="">Class</label>
+               <input type="number" formControlName="class"> <br>
+
+               <label for="">Percentage</label>
+               <input type="number" formControlName="percentage"> <br>
+               <div *ngIf="userForm.get('percentage')?.invalid && userForm.get('percentage')?.touched">
+                <p *ngIf="userForm.get('percentage')?.errors?.['requird']">Percentage is Required</p>
+                <p *ngIf="userForm.get('percentage')?.errors?.['max']">Percentage should be max of 100</p>
+                <p *ngIf="userForm.get('percentage')?.errors?.['min']">Percentage should be min of 0</p>
+            </div>
+
+               <label for="">Year</label>
+               <input type="number" formControlName="year"> <br>
+
+            </div>
+        </div>
+    </div>  <br>
+    <button class="btn btn-secondary" (click)="addmarks()">Add Marks :</button> <br>
+    <br>
+    <button class="btn btn-primary" (click)="create()">Submit</button>
+
+</form>

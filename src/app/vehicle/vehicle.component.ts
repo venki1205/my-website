@@ -13,6 +13,8 @@ export class VehicleComponent {
       (data:any)=>{
         this.vehicles=data;
         console.log(this.vehicles);
+      },(err:any)=>{
+        alert("Internal Server Error")
       }
     )
   }

@@ -1,1 +1,63 @@
-<p>accounts works!</p>
+<h1 style="text-align: center;">Accounts</h1>
+<input type="text" [(ngModel)]="term" (keyup)="filter()">
+
+<select [(ngModel)]="column">
+    <option >account_name</option>
+    <option >available_balance</option>
+    <option >account_number</option>
+    <option >city</option>
+</select>
+<select [(ngModel)]="order">
+    <option >asc</option>
+    <option >desc</option>
+</select>
+<button class="btn btn-primary" (click)="sort()">Sort</button>
+
+
+<select [(ngModel)]="limit">
+     <option >10</option>
+     <option >20</option>
+     <option>30</option>
+     <option>40</option>
+     <option >50</option>
+</select>
+<select [(ngModel)]="page" >
+    <option >1</option>
+    <option >2</option>
+    <option >3</option>
+</select>
+<button  class="btn btn-primary" (click)="pagination()">Pagination</button>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Account Name</th>
+        <th>account_number</th>
+        <th>Available Balance</th>
+        <th>City</th>
+        <th>profie_picture</th>
+        <th >View</th>
+        <th >Edit</th>
+        <th >Actions</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let accounts of accounts">
+        <td>{{accounts.id}}</td>
+        <td>{{accounts.account_name}}</td>
+        <td>{{accounts.account_number}}</td>
+        <td>{{accounts.available_balance}}</td>
+        <td>{{accounts.city}}</td>
+        <td ><img src="{{accounts.profie_picture}}" width="100px" height="100px"></td>
+        <td>
+            <button class="btn btn-info" routerLink="/website/accounts-details/{{accounts.id}}" >View</button>
+        </td>
+        <td>
+            <button class="btn btn-secondary" routerLink="/website/accounts-details/{{accounts.id}}">Edit</button>
+        </td>
+        <td>
+            <button class="btn btn-danger" (click)="delete(accounts.id)">Delete</button>
+        </td>
+    </tr>
+</tbody>
+</table>

@@ -1,0 +1,37 @@
+[
+ 
+    {
+      "Vehicle": "Tesla Beetle",
+      "manufacturer": "Fiat",
+      "model": "Spyder",
+      "type": "Extended Cab Pickup",
+      "fuel": "petrol",
+      "color": "black",
+      "image": "https://loremflickr.com/640/480/food",
+      "cost": "811.00",
+      "id": "33"
+    },
+    {
+      "Vehicle": "Chrysler Escalade",
+      "manufacturer": "Nissan",
+      "model": "CX-9",
+      "type": "Cargo Van",
+      "fuel": "Hybrid",
+      "color": "magenta",
+      "image": "https://loremflickr.com/640/480/transport",
+      "cost": "443.00",
+      "id": "34"
+    },
+    {
+      "Vehicle": "Mercedes Benz A4",
+      "manufacturer": "Cadillac",
+      "model": "CX-9",
+      "type": "Sedan",
+      "fuel": "Hybrid",
+      "color": "blue",
+      "image": "https://loremflickr.com/640/480/technics",
+      "cost": "502.00",
+      "id": "35"
+    }
+
+]

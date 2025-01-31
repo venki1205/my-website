@@ -1,0 +1,34 @@
+.container{
+    width: 100%;
+    height: 100%;
+   display: flex;
+   margin: 10px;
+   justify-items: flex-start;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+}
+.card{
+    width: 600px;
+    height: 420px;
+  
+   
+    
+}
+.details{
+    text-align: left;
+    padding: 20px;
+    
+}
+.logo{
+    text-align: center;
+}
+.button{
+    justify-content: space-between;
+    justify-content: space-around;
+    display: flex;
+}
+.profile{
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+}

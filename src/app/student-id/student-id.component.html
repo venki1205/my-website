@@ -1,0 +1,55 @@
+<h1 style="text-align: center;">Student_ID</h1> <br>
+ <b>Search :</b> <input type="text"[(ngModel)]="term"  (keyup)="filter()" placeholder="Search"> 
+ &nbsp; &nbsp; <b>Column : </b>
+ <select [(ngModel)]="column">
+    <option>name</option>
+    <option>phone</option>
+    <option >city</option>
+    <option >dob</option>
+    <option >email</option>
+    <option >school_name</option>
+    <option >school_city</option>
+    <option >school_pin</option>
+    <option >id</option>
+ </select>  &nbsp; <b>Order : </b>
+ <select [(ngModel)]="order">
+    <option >asc</option>
+    <option >desc</option>
+ </select> &nbsp;
+ <button class="btn btn-primary" (click)="sort()">Sort</button> &nbsp;
+ <select [(ngModel)]="limit">
+   <option >5</option>
+   <option >10</option>
+   <option >15</option>
+   <option >20</option>
+   <option >25</option>
+ </select> &nbsp;
+ <select [(ngModel)]="page">
+   <option>1</option>
+   <option >2</option>
+   <option >3</option>
+ </select> &nbsp;
+ <button class="btn btn-primary" (click)="pagination()">Pagination</button> &nbsp; &nbsp; &nbsp;
+ <button class="btn btn-secondary" >Add Student Details </button>
+<div class="container">
+    <div class="card" *ngFor="let studentid of studentid">
+       
+    <div class="details">
+       <div>
+        <h1 style="background-color: aqua;"><img src="{{studentid.school_logo}}" width="80px" height="80px" > &nbsp;{{studentid.school_name.slice(1,25)}}</h1>
+       </div> 
+    
+        <p ><b>Student ID.No: </b>{{studentid.id}}</p>
+        <p><b>Name : </b>{{studentid.name}}</p>
+        <p><b>Phone No : </b>{{studentid.phone}}</p>
+        <p><b>Address :</b>{{studentid.city}}</p>
+        <p><b>Email :</b> {{studentid.email}}</p>
+        <p><b>School Address : </b>{{studentid.school_city}} &nbsp; &nbsp;&nbsp;<b>Pincode : </b>{{studentid.school_pin}}</p>
+    </div>
+   <div class="button">
+      <button class="btn btn-secondary" routerLink="/website/student-details/{{studentid.id}}">View</button>
+      <button class="btn btn-primary">Edit</button> 
+      <button class="btn btn-danger" (click)="delete(studentid.id)">Delete</button>
+   </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<h1>Create User</h1>
+<form action="" [formGroup]="userForm">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" formControlName="name" appCapital> <br>
+    <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+        <p *ngIf="userForm.get('name')?.errors?.['required']">Name is Required</p>
+    </div>
+
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="eamil" formControlName="email"> <br>
+    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+        <p *ngIf="userForm.get('email')?.errors?.['required']">Email is Required</p>
+        <p *ngIf="userForm.get('email')?.errors?.['email']">Email is Invalid</p>
+        <p *ngIf="userForm.get('email')?.errors?.['tcsMail']">Only TCS Mail Accepted</p>
+    </div>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" formControlName="password"> <br>
+    <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+        <p *ngIf="userForm.get('password')?.errors?.['required']">Password is Required</p>
+        <p *ngIf="userForm.get('password')?.errors?.['minlength']">Password should be min of 6 </p>
+        <p *ngIf="userForm.get('password')?.errors?.['maxlength']">Password should be max of 10 </p>
+    </div>
+
+    <label for="mobile">Mobile</label>
+    <input type="number" name="mobile" id="mobile" formControlName="mobile"> <br>
+    <div *ngIf="userForm.get('mobile')?.invalid && userForm.get('mobile')?.touched">
+        <p *ngIf="userForm.get('mobile')?.errors?.['required']">Mobile Number is Required</p>
+        <p *ngIf="userForm.get('mobile')?.errors?.['min']">Mobile Number should be min of 10 </p>
+        <p *ngIf="userForm.get('mobile')?.errors?.['max']">Mobile Number should be max of 10 </p>
+    </div>
+
+    <div formGroupName="address">
+        <label for="village">Village</label>
+        <input type="text" name="village" id="village" formControlName="village"> <br>
+
+        <label for="district">District</label>
+        <input type="text" name="district" id="district" formControlName="district"> <br>
+
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" formControlName="state"> <br>
+
+        <label for="pincode">Pincode</label>
+        <input type="number" name="pincode" id="pincode" formControlName="pincode"> <br>
+
+    </div>
+    <label>Type </label> &nbsp;
+    <input type="radio" name="type" formControlName="type" value="dayscholar">
+    <label>DaysScholar</label> &nbsp;
+    <input type="radio" name="type" formControlName="type" value="hostel">
+    <label >Hostel</label> <br>
+    <div *ngIf="userForm.get('type')?.value=='dayscholar'">
+        <label for="">Bus Fee  </label>
+        <input type="number" formControlName="busfee"> <br>
+    </div>
+    <div *ngIf="userForm.get('type')?.value=='hostel'">
+        <label for="">Hostel Fee  </label>
+        <input type="number" formControlName="hostelfee"> <br>
+    </div> <br>
+    <button class="btn btn-secondary" (click)="addcard()">Add Card</button>
+    <div formArrayName="cards">
+        <div *ngFor="let card of cardFormArry.controls; let i=index">
+            <div formGroupName="{{i}}">
+                <h2>card{{i+1}}</h2>
+                <label for="">Number:</label>
+                <input type="number" formControlName="number"> <br>
+                <label for="">Expiry:</label>
+                <input type="month" formControlName="expiry"> <br>
+                <label for="">CVV:</label>
+                <input type="number" formControlName="cvv"> <br>
+                <button class="btn btn-danger" (click)="delete(i)">Delete Card</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="create()">Submit</button>
+    
+
+</form>
